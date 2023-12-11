@@ -3,6 +3,8 @@
 
 #include <vector>
 #include <string>
+#include <iostream>
+#include <fstream>
 
 #include "message.hpp"
 
@@ -27,6 +29,7 @@ public:
     void calculate_access_time();
     void calculate_WCTT();
     void print_messsages();
+    void print_xml(std::ofstream &file);
 };
 
 #endif

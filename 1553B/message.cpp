@@ -18,10 +18,10 @@ Message::Message (
 }
 
 int Message::size_of_message() const {
-    if (this->type == "CP") {
-        return OVERHEAD_CP + ((this->message_size+1)/2)*20;
+    if (this->receiver == "SXJJ" or this->sender == "SXJJ") {
+        return OVERHEAD_CP + this->message_size*20;
     }
-    return OVERHEAD_CC + ((this->message_size+1)/2)*20;
+    return OVERHEAD_CC + this->message_size*20;
 }
 
 // Gives result in us
@@ -33,8 +33,24 @@ std::string Message::get_name() const {
     return this->name;
 }
 
+std::string Message::get_type() const {
+    return this->type;
+}
+
 float Message::get_frequence() const {
     return this->frequence;
+}
+
+int Message::get_size() const {
+    return this->message_size;
+}
+
+std::string Message::get_sender() const {
+    return this->sender;
+} 
+
+std::string Message::get_receiver() const {
+    return this->receiver;
 }
 
 double Message::get_transmissionTime() const {

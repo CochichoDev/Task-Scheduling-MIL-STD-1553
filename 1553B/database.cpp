@@ -117,3 +117,22 @@ void Database::print_messsages() {
         std::cout << std::endl;
     }
 }
+
+void Database::print_xml(std::ofstream &file) {
+    file << "<fichier titre=\"BUS 1553B B1 \">\n";
+    for (Message msg: this->messages) {
+        file << "<message>\n";
+        file  << "<nom>" << msg.get_name() << "</nom>\n";
+        file  << "<type>" << msg.get_type() << "</type>\n";
+        file  << "<frequence>" << msg.get_frequence() << "</frequence>\n";
+        file  << "<taille_mes>" << msg.get_size() << "</taille_mes>\n";
+        file  << "<emetteur>" << msg.get_sender() << "</emetteur>\n";
+        file  << "<recepteur>" << msg.get_receiver() << "</recepteur>\n";
+        file  << "<DT>" << msg.get_transmissionTime() << "us</DT>\n";
+        file  << "<DMAC>" << msg.get_accessTime() << "us</DMAC>\n";
+        file  << "<DBEB>" << msg.get_WCTT() << "us</DBEB>\n";
+        file  << "<Test>" << ((msg.get_WCTT() < (1e6/msg.get_frequence())) ? "True" : "False") << "</Test>\n";
+        file << "</message>\n";
+    }
+    file << "</fichier>";
+}

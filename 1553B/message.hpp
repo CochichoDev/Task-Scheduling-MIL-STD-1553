@@ -32,8 +32,11 @@ public:
     // Returns the transmission time in us
     double transmission_time() const;
     std::string get_name() const;
-
+    std::string get_type() const;
     float get_frequence() const;
+    int get_size() const;
+    std::string get_sender() const;
+    std::string get_receiver() const;
     double get_transmissionTime() const;
     double get_accessTime() const;
     double get_WCTT() const;

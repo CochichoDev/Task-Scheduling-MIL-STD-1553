@@ -7,7 +7,10 @@ int main()  {
     messages.calculate_WCTT();
     messages.calculate_access_time();
 
-    messages.print_messsages();
+    std::ofstream new_xml;
+    new_xml.open("results.xml");
+    messages.print_xml(new_xml);
+    new_xml.close();
 
     return 0;
 }
